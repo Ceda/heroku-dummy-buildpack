@@ -1,3 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
-exit 0
+# fail fast
+set -o errexit
+set -o pipefail
+
+function indent() {
+  c='s/^/       /'
+  case $(uname) in
+    Darwin) sed -l "$c";;
+    *)      sed -u "$c";;
+  esac
+}
+
+cd $1
+echo "-----> Running bin/test"
+bin/test | indent

@@ -1,8 +1,2 @@
 #!/bin/sh
-
-build_dir=$1
-cache_dir=$2
-
-cat << EOF
----{ }
-EOF
+echo "--- {}"
